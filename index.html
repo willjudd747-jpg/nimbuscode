@@ -3,57 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Software Name</title>
+<title>Your Software</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Consolas, monospace;
 }
 
 body{
-    background:#f5f7fa;
-    color:#333;
-    line-height:1.6;
+    background:#000;
+    color:#00ff66;
+    overflow-x:hidden;
+}
+
+/* MATRIX BACKGROUND */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
 }
 
 header{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    color:white;
     text-align:center;
-    padding:80px 20px;
+    padding:100px 20px;
 }
 
-header h1{
-    font-size:3rem;
+.logo{
+    font-size:4rem;
+    text-shadow:0 0 20px #00ff66;
 }
 
-header p{
+.subtitle{
+    color:#9affc5;
     margin-top:15px;
-    font-size:1.2rem;
 }
 
 .btn{
     display:inline-block;
-    margin-top:25px;
-    padding:12px 24px;
-    background:white;
-    color:#2563eb;
+    margin:15px;
+    padding:14px 28px;
     text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
+    border:2px solid #00ff66;
+    color:#00ff66;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#00ff66;
+    color:#000;
+    box-shadow:0 0 20px #00ff66;
 }
 
 section{
-    padding:60px 10%;
+    max-width:1200px;
+    margin:auto;
+    padding:70px 20px;
 }
 
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:2rem;
+h2{
+    margin-bottom:25px;
+    text-shadow:0 0 10px #00ff66;
 }
 
 .features{
@@ -63,10 +76,14 @@ section{
 }
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    border:1px solid #00ff66;
+    padding:20px;
+    background:rgba(0,0,0,.7);
+    backdrop-filter:blur(5px);
+}
+
+.card:hover{
+    box-shadow:0 0 20px #00ff66;
 }
 
 .gallery{
@@ -77,136 +94,215 @@ section{
 
 .gallery img{
     width:100%;
-    border-radius:12px;
-    height:220px;
-    object-fit:cover;
+    border:1px solid #00ff66;
 }
 
-.download{
+.downloads{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.download-box{
+    border:1px solid #00ff66;
+    padding:25px;
     text-align:center;
-    background:#2563eb;
-    color:white;
-    border-radius:15px;
-    padding:50px 20px;
 }
 
-.download a{
+.download-box a{
     display:inline-block;
-    margin-top:20px;
-    background:white;
-    color:#2563eb;
-    padding:12px 24px;
-    border-radius:8px;
+    margin-top:15px;
+    padding:10px 20px;
+    border:1px solid #00ff66;
+    color:#00ff66;
     text-decoration:none;
-    font-weight:bold;
+}
+
+.download-box a:hover{
+    background:#00ff66;
+    color:#000;
+}
+
+.terminal{
+    background:#050505;
+    border:1px solid #00ff66;
+    padding:20px;
+    line-height:1.8;
 }
 
 footer{
     text-align:center;
-    padding:30px;
-    background:#111827;
-    color:white;
+    padding:40px;
+    border-top:1px solid #00ff66;
 }
 </style>
 </head>
 <body>
 
+<canvas id="matrix"></canvas>
+
 <header>
-    <h1>[SOFTWARE NAME]</h1>
-    <p>[Short description of your software goes here]</p>
-    <a href="#download" class="btn">Download Free</a>
+    <h1 class="logo">[SOFTWARE NAME]</h1>
+    <p class="subtitle">
+        > [Your software slogan here]
+    </p>
+
+    <a href="#downloads" class="btn">DOWNLOADS</a>
+    <a href="#screenshots" class="btn">SCREENSHOTS</a>
 </header>
 
 <section>
-    <h2 class="section-title">Why Choose [SOFTWARE NAME]</h2>
+    <h2>> FEATURES</h2>
 
     <div class="features">
+
         <div class="card">
             <h3>[Feature 1]</h3>
-            <p>[Description of feature 1]</p>
+            <p>Description goes here.</p>
         </div>
 
         <div class="card">
             <h3>[Feature 2]</h3>
-            <p>[Description of feature 2]</p>
+            <p>Description goes here.</p>
         </div>
 
         <div class="card">
             <h3>[Feature 3]</h3>
-            <p>[Description of feature 3]</p>
+            <p>Description goes here.</p>
         </div>
 
         <div class="card">
             <h3>[Feature 4]</h3>
-            <p>[Description of feature 4]</p>
+            <p>Description goes here.</p>
         </div>
+
     </div>
 </section>
 
-<section>
-    <h2 class="section-title">Screenshots</h2>
+<section id="screenshots">
+    <h2>> SCREENSHOTS</h2>
 
     <div class="gallery">
-        <img src="images/screenshot1.jpg" alt="Screenshot 1">
-        <img src="images/screenshot2.jpg" alt="Screenshot 2">
-        <img src="images/screenshot3.jpg" alt="Screenshot 3">
-        <img src="images/screenshot4.jpg" alt="Screenshot 4">
+        <img src="images/shot1.png">
+        <img src="images/shot2.png">
+        <img src="images/shot3.png">
+        <img src="images/shot4.png">
     </div>
 </section>
 
 <section>
-    <h2 class="section-title">About The Software</h2>
+    <h2>> SYSTEM INFO</h2>
 
-    <p>
-        [Large placeholder paragraph about your software.]
-        Explain what it does, who it helps, and why people should use it.
-    </p>
-
-    <br>
-
-    <p>
-        [Another placeholder paragraph with more details.]
-    </p>
-</section>
-
-<section id="download">
-    <div class="download">
-        <h2>Download For Free</h2>
-        <p>[Add your download instructions here]</p>
-
-        <!-- Replace with your file -->
-        <a href="downloads/software.zip">
-            Download Now
-        </a>
+    <div class="terminal">
+        <p>> Version: [1.0.0]</p>
+        <p>> Platform: [Windows/Linux/Mac]</p>
+        <p>> License: FREE</p>
+        <p>> Status: STABLE</p>
+        <p>> Author: [YOUR NAME]</p>
     </div>
 </section>
 
-<section>
-    <h2 class="section-title">Frequently Asked Questions</h2>
+<section id="downloads">
+    <h2>> DOWNLOADS</h2>
 
-    <div class="card">
-        <h3>[Question 1]</h3>
-        <p>[Answer 1]</p>
-    </div>
+    <div class="downloads">
 
-    <br>
+        <div class="download-box">
+            <h3>Windows</h3>
+            <p>Latest release</p>
+            <a href="downloads/windows.zip">
+                Download
+            </a>
+        </div>
 
-    <div class="card">
-        <h3>[Question 2]</h3>
-        <p>[Answer 2]</p>
-    </div>
+        <div class="download-box">
+            <h3>Linux</h3>
+            <p>Latest release</p>
+            <a href="downloads/linux.zip">
+                Download
+            </a>
+        </div>
 
-    <br>
+        <div class="download-box">
+            <h3>MacOS</h3>
+            <p>Latest release</p>
+            <a href="downloads/mac.zip">
+                Download
+            </a>
+        </div>
 
-    <div class="card">
-        <h3>[Question 3]</h3>
-        <p>[Answer 3]</p>
+        <div class="download-box">
+            <h3>Source Code</h3>
+            <p>Open Source</p>
+            <a href="downloads/source.zip">
+                Download
+            </a>
+        </div>
+
     </div>
 </section>
 
 <footer>
-    <p>© 2026 [SOFTWARE NAME]. All Rights Reserved.</p>
+    <p>
+        © 2026 [SOFTWARE NAME]
+    </p>
 </footer>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars =
+"01ABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]<>/\\#$%^&*";
+const fontSize = 14;
+const columns = canvas.width/fontSize;
+
+const drops = [];
+
+for(let i=0;i<columns;i++){
+    drops[i]=1;
+}
+
+function draw(){
+
+    ctx.fillStyle="rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="#00ff66";
+    ctx.font=fontSize+"px monospace";
+
+    for(let i=0;i<drops.length;i++){
+
+        const text=
+        chars[Math.floor(Math.random()*chars.length)];
+
+        ctx.fillText(
+            text,
+            i*fontSize,
+            drops[i]*fontSize
+        );
+
+        if(
+            drops[i]*fontSize>canvas.height &&
+            Math.random()>0.975
+        ){
+            drops[i]=0;
+        }
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw,33);
+
+window.addEventListener("resize",()=>{
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+});
+</script>
 
 </body>
 </html>
